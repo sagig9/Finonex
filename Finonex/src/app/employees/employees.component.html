@@ -1,0 +1,39 @@
+
+<p *ngIf="!employees"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+
+<p-panel header="All Employees">
+
+  <div class="m-b-2">
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <p-autoComplete  placeholder="Search" (onSelect)="onEmployeeSelect($event)" [(ngModel)]="selectedEmployee" [showEmptyMessage]="true" [suggestions]="filteredEmployees" (completeMethod)="filterEmployee($event)" field="fullName" [minLength]="0"></p-autoComplete>
+    </span>
+
+    <button pButton type="button" label="Add" [routerLink]="['/add-employee']" class="p-button-secondary f-r"></button>
+  </div>
+
+  <p-table [value]="filteredEmployees" *ngIf="filteredEmployees" [scrollable]="true" scrollHeight="34rem">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Full Name</th>
+        <th>Address</th>
+        <th>Phone Nnumber</th>
+        <th>Department</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-emp>
+      <tr>
+        <td>{{emp.fullName}}</td>
+        <td>{{emp.address}}</td>
+        <td>{{emp.phoneNumber}}</td>
+        <td>{{emp.department.name}}</td>
+        <td>
+          <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-text" (click)="deleteEmployee(emp);"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+
+</p-panel>

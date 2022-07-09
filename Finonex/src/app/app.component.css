@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  
+}
+
+div {
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 99vw;
+  height: 98vh
+}
+
+.sidebar, .body {
+  height: calc(98vh - 12rem);
+}
+
+.sidebar {
+  width: 20%;
+  float: left
+}
+
+.body {
+  width: 80%;
+  float: right
+}

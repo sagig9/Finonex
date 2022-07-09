@@ -1,0 +1,11 @@
+
+.header {
+  width: 99vw;
+  height: 6rem;
+}
+
+.header-text {
+  font-size: 2rem;
+  padding-top: 1.5rem;
+  padding-left: 2rem;
+}

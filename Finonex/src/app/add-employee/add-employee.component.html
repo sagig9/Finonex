@@ -1,0 +1,35 @@
+
+<p-panel header="New Employee">
+  <div>
+    <input type="text" class="p-inputtext" placeholder="Full Name" [(ngModel)]="employee.fullName" pInputText />
+    <small *ngIf="!employee.fullName" class="p-error block">Full Name is required.</small>
+  </div>
+  <p-divider layout="vertical"></p-divider>
+  <div>
+    <input type="text" class="p-inputtext" placeholder="Address" [(ngModel)]="employee.address" pInputText />
+    <small *ngIf="!employee.address" class="p-error block">Address is required.</small>
+  </div>
+  <p-divider layout="vertical"></p-divider>
+  <div>
+    <p-dropdown [options]="departments" [(ngModel)]="employee.department" optionLabel="name" placeholder="Select Department" [showClear]="true"></p-dropdown>
+    <small *ngIf="!employee.department" class="p-error block">Department is required.</small>
+  </div>
+  <p-divider layout="vertical"></p-divider>
+  <div>
+    <input type="text" class="p-inputtext" placeholder="Phone Number" [(ngModel)]="employee.phoneNumber" pInputText />
+    <small *ngIf="!employee.phoneNumber" class="p-error block">Phone Number is required.</small>
+  </div>
+
+  <div class="m-b-2">
+    <button pButton type="button" label="Cancel" class="p-button-outlined f-r" (click)="cancel()"></button>
+    <button pButton type="button" label="Submit" class="p-button-secondary f-r m-r-1" (click)="addEmployee()"></button>
+  </div>
+
+  <p-divider layout="vertical"></p-divider>
+
+  <div>
+    <p-messages [(value)]="msgs1" [enableService]="true"></p-messages>
+  </div>
+
+
+</p-panel>
